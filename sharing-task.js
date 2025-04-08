@@ -1,3 +1,4 @@
+const input = require('readline-sync')
 /*
 ===========================================
 🤝 Collaborative Coding Challenge: Event Helpers
@@ -35,6 +36,10 @@ reusable functions that solve specific tasks. This activity encourages:
 // 2. Format the output string properly.
 // 3. Capitalize the role if needed.
 // 4. Return the result.
+function attendeeBadge(name, role){
+    console.log(`Name: ${name}, Role: ${role.toUpperCase().charAt(0)}${role.slice(1)}`)
+}
+attendeeBadge('Sean','student')
 
 
 // ============================================
@@ -50,7 +55,20 @@ reusable functions that solve specific tasks. This activity encourages:
 // 2. Check if attendee count is over 100.
 // 3. If so, apply a 10% discount.
 // 4. Return the final total.
-
+function calculateCost(totalAttendees, costPA) {
+    let cost = totalAttendees * costPA;
+  
+    if (getsDiscount(totalAttendees)) {
+      cost *= .9;
+    }
+    return cost;
+  }
+function getsDiscount(totalAttendees) {
+    return (totalAttendees > 100);
+}
+  
+  let totalCost = calculateCost(100, 25);
+  console.log(totalCost);
 
 // ============================================
 // 🧩 Task 3: Validate Email
@@ -64,6 +82,14 @@ reusable functions that solve specific tasks. This activity encourages:
 // 1. Check if the string includes both "@" and ".".
 // 2. Return true or false accordingly.
 
+
+
+let userEmail = input.question("Enter your email: ");
+
+function validateEmail(email) {
+  return email.includes('@') && email.includes('.');
+}
+console.log(validateEmail(userEmail));
 
 // ============================================
 // 🧠 Collaborative Steps
